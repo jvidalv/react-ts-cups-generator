@@ -28,8 +28,9 @@ export const ContentStyled = styled.div`
   flex-direction: column;
   min-height: 100vh;    
   max-width: 900px;
+  
   & h1 {
-    margin-top:50px;
+    margin-top: 50px;
     margin-bottom: 50px;
     &::after{
         content: " ";

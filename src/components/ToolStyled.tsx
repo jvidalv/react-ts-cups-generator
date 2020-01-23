@@ -11,7 +11,15 @@ export const ToolStyled = styled.div<ToolProps>`
     font-size: 17px;
     text-align: center;
     line-height: 35px;
+    overflow:hidden;
+    transition: .25s;
+    cursor:pointer;
+    user-select: none;
+    color : white;
     &:not(:last-child){
       margin-right: 3px;
+    }
+    &.hovered{
+      width: 80px;
     }
 `;

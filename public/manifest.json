@@ -1,11 +1,11 @@
 {
-  "short_name": "CUPS generator",
-  "name": "CUPS configurable generator",
+  "short_name": "react-ts-generador-cups",
+  "name": "Generador de CUPS online ⚡",
   "icons": [
     {
       "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "type": "image/jpg"
     },
     {
       "src": "logo192.png",
@@ -21,5 +21,5 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#000000"
 }

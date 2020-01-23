@@ -1,10 +1,11 @@
 import React from "react";
 import Toggle from "react-toggle";
 import {IconTogglerStyled, NavbarStyled} from "./NavbarStyled";
+import {useGlobals} from "../contexts/global";
 
 interface IconTogglerProps {
     icon: string;
-    left?:  boolean;
+    left?: boolean;
     right?: boolean;
 }
 
@@ -18,27 +19,29 @@ const IconToggler: React.FC<IconTogglerProps> = (props) => {
     )
 };
 
-interface NavbarProps {
-    theme: string;
-    useTheme: any;
-}
-
 /**
- * @param props
  * @constructor
  */
-const Navbar: React.FC<NavbarProps> = (props) => {
+const Navbar: React.FC = () => {
+    const [{theme}, dispatch] = useGlobals();
+
     const changeTheme = () => {
-        props.useTheme(props.theme === 'dark' ? 'light' : 'dark')
+        dispatch({
+            type: "changeTheme",
+            changeTheme: theme === "dark" ? "light" : "dark"
+        });
     };
+
     return (
         <NavbarStyled>
-                <Toggle
-                    icons={{
-                        checked: <IconToggler left icon="🌞"/>,
-                        unchecked: <IconToggler right icon="🌛"/>,
-                    }}
-                    onChange={changeTheme}/>
+            <Toggle
+                icons={{
+                    checked: <IconToggler left icon="🌞"/>,
+                    unchecked: <IconToggler right icon="🌛"/>,
+                }}
+                onChange={changeTheme}/>
+            <span>─</span>
+            <a href="https://github.com/jvidalv/react-ts-cups-generator" target="_blank" rel="noopener noreferrer">>> Github</a>
         </NavbarStyled>
     );
 };

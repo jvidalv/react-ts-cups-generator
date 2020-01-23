@@ -1,11 +1,24 @@
 import styled from "styled-components";
+import THEME from "../constants/themes";
 
 export const NavbarStyled = styled.div`
-    position: absolute;
-    right: 10px;
-    top: 10px;
+    margin-top:25px;
     display: flex;
-    margin-bottom: 50px;
+    align-items: center;
+    flex-direction: row-reverse;
+    & a{
+      color: ${props => THEME[props.theme.type].onBackground};
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: .25s;
+      &:hover{
+        color: ${props => THEME[props.theme.type].primary};
+        letter-spacing: 1px;
+      }
+    }
+    & span {
+      padding: 0 10px
+    }
 `;
 
 interface IconTogglerStyledProps {
@@ -20,4 +33,5 @@ export const IconTogglerStyled = styled.div<IconTogglerStyledProps>`
     top: 0.3em;
     ${props => props.right ? 'right: -5px' : null };
     ${props => props.left ? 'left: -5px' : null };
+  
 `;

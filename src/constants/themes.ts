@@ -11,8 +11,7 @@ export const THEME : any = {
     light: {
         background: "#ffffff",
         onBackground: "#000000",
-        primary: "#efbb35",
-
+        primary: "#b935ef",
     },
 };
 

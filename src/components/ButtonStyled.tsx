@@ -10,7 +10,7 @@ export const ButtonStyled = styled.div<ButtonProps>`
    display: flex;
    margin-bottom: 3px;
    font-size: 1.1rem;
-   
+   user-select: none;
    & > div:first-child, > div:last-child{
      width: 25px;
      background: #4D4D4D;
