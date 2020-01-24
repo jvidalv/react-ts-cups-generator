@@ -1,6 +1,6 @@
 import React, {createContext, ReactElement, useContext, useReducer} from "react";
 
-export const reducer = (state : object, action : any)  : object|undefined => {
+export const reducer = (state: object, action: any): object | undefined => {
     switch (action.type) {
         case "changeTheme":
             return {
@@ -10,7 +10,7 @@ export const reducer = (state : object, action : any)  : object|undefined => {
         case "changeCCUPS":
             return {
                 ...state,
-                changeCCUPS: action.changeTipo
+                changeCCUPS: action.changeCCUPS
             };
     }
 };
@@ -18,17 +18,16 @@ export const reducer = (state : object, action : any)  : object|undefined => {
 /**
  * Initial app context, theme and cups generator properties
  */
-export const initialState : any = {
+export const initialState: any = {
     theme: 'dark',
     ccups: {
-        tipo: 'any',
-        distribuidoras: [
-            'endesa', 'iberdrola', 'naturgy', 'e-redes'
+        tipo: ['Electricidad', 'Gas'],
+        distribuidora: [
+            'Endesa', 'Iberdrola', 'Naturgy', 'E-Redes', 'Redexis', 'Nortegas', 'Madrileña RDG'
         ],
-        otros: {
-            canario: 1
-        }
-    }
+        otros: ['Canario'],
+    },
+    updated: Date.now(),
 };
 
 /**

@@ -10,35 +10,18 @@ interface ButtonProps {
 }
 
 /**
- * Very nice if if if function to set the right type of energy
- * Not very proud, buy hey, it works 🤷‍♂️
+ * In out distribuidoras
  * @param text
- * @param tipo
- * @param checked
+ * @param values
  */
-function calculateTipo(text : string, tipo: string, checked: boolean): string {
-   if(!checked){
-       if(tipo === "any"){
-           return text === "Electricidad" ? "gas" : "electricidad";
-       }
-       if(tipo === "electricidad"){
-           return text === "Electricidad" ? "none" : "gas";
-       }
-       if(tipo === "gas"){
-           return text === "Electricidad" ? "gas" : "none";
-       }
-   } else {
-       if(tipo === "none"){
-           return text === "Electricidad" ? "electricidad" : "gas";
-       }
-       if(tipo === "electricidad"){
-           return text === "Gas" ? "any" : "electricidad";
-       }
-       if(tipo === "gas"){
-           return text === "Electricidad" ? "any" : "gas";
-       }
-   }
-   return "any";
+function calculateOptions(text: string, values: Array<string>) {
+    const index = values.findIndex((value: string) => value === text);
+    if (index !== -1) {
+        values.splice(index, 1)
+    } else {
+        values.push(text)
+    }
+    return values;
 }
 
 /**
@@ -52,18 +35,11 @@ const Button: React.FC<ButtonProps> = ({text, background, color, type}) => {
     const [{ccups}, dispatch] = useGlobals();
     const [checked, setChecked] = React.useState(true);
     const changeChecked = () => {
-        switch (type) {
-            case 'tipo':
-                dispatch({
-                    type: "changeCCUPS",
-                    changeCCUPS: {...ccups, tipo : calculateTipo(text, ccups.tipo, !checked) }
-                });
-                break;
-            case 'distribuidora':
-                break;
-            case 'otros':
-                break;
-        }
+        ccups[type] = calculateOptions(text, ccups[type]);
+        dispatch({
+            type: "changeCCUPS",
+            changeCCUPS: {...ccups}
+        });
         setChecked(!checked);
     };
 

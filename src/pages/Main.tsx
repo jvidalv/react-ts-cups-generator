@@ -6,6 +6,7 @@ import Navbar from "../layouts/Navbar";
 import Button from "../components/Button";
 import ButtonTitle from "../components/ButtonTitle";
 import Tool from "../components/Tool";
+import Input from "../components/Input";
 
 /**
  * @constructor
@@ -26,7 +27,7 @@ const Main: React.FC = () => {
                                 <Tool icon="👥" text="COPIAR" background="orange"/>
                                 <Tool icon="♻" text="GENERAR" background="chocolate"/>
                             </div>
-                            <input readOnly={true} value="ES0318363477145938GE"/>
+                            <Input/>
                         </div>
                     </div>
                     <div className="options">
@@ -41,6 +42,10 @@ const Main: React.FC = () => {
                             <Button type="distribuidora" text="Iberdrola" background="cornflowerblue" color="white"/>
                             <Button type="distribuidora" text="Naturgy" background="darkslateblue" color="white"/>
                             <Button type="distribuidora" text="E-Redes" background="mediumslateblue" color="white"/>
+                            <Button type="distribuidora" text="Redexis" background="dodgerblue" color="white"/>
+                            <Button type="distribuidora" text="Nortegas" background="midnightblue" color="white"/>
+                            <Button type="distribuidora" text="Madrileña RDG" background="royalblue" color="white"/>
+
                         </div>
                         <div className="tipo-subministro">
                             <ButtonTitle text="Otros" icon="🌴"/>
