@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/react-ts-cups-generator/static/css/main.5a48a0b4.chunk.css",
-    "main.js": "/react-ts-cups-generator/static/js/main.75069c24.chunk.js",
-    "main.js.map": "/react-ts-cups-generator/static/js/main.75069c24.chunk.js.map",
+    "main.js": "/react-ts-cups-generator/static/js/main.8badf5ef.chunk.js",
+    "main.js.map": "/react-ts-cups-generator/static/js/main.8badf5ef.chunk.js.map",
     "runtime-main.js": "/react-ts-cups-generator/static/js/runtime-main.16c5a109.js",
     "runtime-main.js.map": "/react-ts-cups-generator/static/js/runtime-main.16c5a109.js.map",
     "static/js/2.b85c9bac.chunk.js": "/react-ts-cups-generator/static/js/2.b85c9bac.chunk.js",
     "static/js/2.b85c9bac.chunk.js.map": "/react-ts-cups-generator/static/js/2.b85c9bac.chunk.js.map",
     "index.html": "/react-ts-cups-generator/index.html",
-    "precache-manifest.790cc375b52d0b05a4468bf129dac047.js": "/react-ts-cups-generator/precache-manifest.790cc375b52d0b05a4468bf129dac047.js",
+    "precache-manifest.0e15ecef714a2bb98ac04d1a8e5e13c8.js": "/react-ts-cups-generator/precache-manifest.0e15ecef714a2bb98ac04d1a8e5e13c8.js",
     "service-worker.js": "/react-ts-cups-generator/service-worker.js",
     "static/css/main.5a48a0b4.chunk.css.map": "/react-ts-cups-generator/static/css/main.5a48a0b4.chunk.css.map",
     "static/js/2.b85c9bac.chunk.js.LICENSE": "/react-ts-cups-generator/static/js/2.b85c9bac.chunk.js.LICENSE"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.16c5a109.js",
     "static/js/2.b85c9bac.chunk.js",
     "static/css/main.5a48a0b4.chunk.css",
-    "static/js/main.75069c24.chunk.js"
+    "static/js/main.8badf5ef.chunk.js"
   ]
 }
