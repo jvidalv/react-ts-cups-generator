@@ -46,21 +46,26 @@ export const ContentStyled = styled.div`
     margin: 25px 0;
     transform: skewY(6deg);
     background: linear-gradient(transparent,rgb(53, 76, 239));
-    height: 45px;
+    height: 60px;
     & > div {
       transform: skewY(-6deg);
     }
-    & input {
+    & .cups-div {
         width: 100%;
-        height: 30px;
+        height: 36px;;
         border: unset;
         text-align: center;
         cursor: pointer;
         background: ${props => THEME[props.theme.type].onBackground};
         color: ${props => THEME[props.theme.type].background};
-        margin-top: 3px;
         padding: unset;
-        font-size: 20px;
+        font-size: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @media (max-width: 560px) {
+           font-size: 18px;
+        }
     }
     
     & .tools {

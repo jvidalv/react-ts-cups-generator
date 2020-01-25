@@ -23,7 +23,7 @@ export const initialState: any = {
     ccups: {
         tipo: ['Electricidad', 'Gas'],
         distribuidora: [
-            'Endesa', 'Iberdrola', 'Naturgy', 'E-Redes', 'Redexis', 'Nortegas', 'Madrileña RDG'
+            'Endesa', 'Iberdrola', 'Naturgy', 'E-Redes', 'Redexis', 'Nortegas', 'RDG'
         ],
         otros: ['Canario'],
     },

@@ -1,22 +1,7 @@
 import React from "react";
 import {useGlobals} from "../contexts/global";
+import {CONTROL_DIGITS, FIRST_DIGITS} from "../constants/cups";
 
-const DEFAULT_CUPS = "ES0318363477145938GE";
-const FIRST_DIGITS: any = {
-    Electricidad: {
-        'Endesa': ['ES0023', 'ES0024', 'ES0029', 'ES0288', 'ES0363', 'ES0396'],
-        'Iberdrola': ['ES0021'],
-        'Naturgy': ['ES0022', 'ES0390', 'ES0397'],
-        'E-redes': ['ES0026'],
-    },
-    Gas: {
-        'Naturgy': ['ES0230', 'ES0203', 'ES0218', 'ES0220', 'ES0221', 'ES0222', 'ES0223',
-            'ES0224', 'ES0226', 'ES0227'],
-        'Redexia': ['ES0208', 'ES0225', 'ES0205', 'ES0206'],
-        'Nortegas': ['ES0229', 'ES0201', 'ES0229', 'ES0211'],
-        'Madrileña RDG': ['ES0234', 'ES0228'],
-    }
-};
 
 let ccupsi: any;
 let dist = "";
@@ -27,36 +12,75 @@ let cups = "ES0318363477145938GE";
  * Main of cups generation flow, takes care of call al methods and sets all the props
  * @param ccups
  * @param setCups
+ * @param setTipo
+ * @param setDistribuidora
  */
-function main(ccups: object, setCups: any) {
+function main(ccups: object, setCups: any, setTipo: any, setDistribuidora: any) {
     ccupsi = ccups;
 
     getFirstDigits();
+    cups && getMiddleDigits();
+    cups && getEndChars();
+
+    setDistribuidora(cups ? dist : "🙄");
+    setTipo(cups ? tipo : "💥");
+
+    cups = cups ? cups : "🤷‍♀️";
 
     setCups(cups)
 }
 
 /**
- * a los monstruos no mirar
+ * Sets first 6 digits of a CUPS based on options selected
+ * It is a recursive and amazign function thought by the brightest brain of my 600 hundred population, me
  */
-function getFirstDigits() {
+const getFirstDigits = (): string | undefined => {
     tipo = ccupsi.tipo[ccupsi.tipo.length > 1 ? Math.round(Math.random()) : 0];
-    let t_dist = Object.keys(FIRST_DIGITS[tipo]).filter((key: string) => ccupsi.distribuidora.includes(key));
-    dist = t_dist[t_dist.length > 1 ? Math.floor(Math.random() * t_dist.length) : 0];
-    cups = FIRST_DIGITS[tipo][dist][Math.floor(Math.random() * FIRST_DIGITS[tipo][dist].length)];
-}
-
-export const useCups = (): string => {
-    const [{ccups}] = useGlobals();
-    const [cups, setCups] = React.useState("");
-
-    React.useEffect(() => {
-        main(ccups, setCups);
-    }, [ccups.tipo.length, ccups.distribuidora.length, ccups.otros.length]);
-
-    return cups;
+    if (tipo) {
+        let t_dist = Object.keys(FIRST_DIGITS[tipo]).filter((key: string) => ccupsi.distribuidora.includes(key));
+        if (!t_dist.length && ccupsi.distribuidora.length) {
+            return getFirstDigits();
+        }
+        dist = t_dist[t_dist.length > 1 ? Math.floor(Math.random() * t_dist.length) : 0];
+    }
+    cups = tipo && dist ? FIRST_DIGITS[tipo][dist][Math.floor(Math.random() * FIRST_DIGITS[tipo][dist].length)] : ""
 };
 
-export interface indexable {
-    [key: string]: any;
-}
+/**
+ * Sets middle digits, 12 length
+ */
+const getMiddleDigits = () => {
+    const max = 999999999999, min = 100000000000;
+
+    cups = cups + (Math.floor(Math.random() * (max - min)) + min).toString();
+};
+
+/**
+ * Calculates control chars
+ */
+const getEndChars = () => {
+    const c_cups = cups.substr(2);
+    let resto = parseInt(c_cups) % 529;
+    let c = resto % 23;
+    let r = Math.floor(resto / 23);
+    let result = [c, r].sort();
+
+    cups = cups + CONTROL_DIGITS[result[0]] + CONTROL_DIGITS[result[1]];
+};
+
+/**
+ * Main hook that calculates and returns a random cups based on parameters from global context
+ * It also returns the random type and distribuidora choosen during the calculations
+ */
+export const useCups = (): any => {
+    const [{ccups}] = useGlobals();
+    const [cups, setCups] = React.useState("");
+    const [distribuidora, setDistribuidora] = React.useState("");
+    const [tipo, setTipo] = React.useState("");
+
+    React.useEffect(() => {
+        main(ccups, setCups, setTipo, setDistribuidora);
+    }, [ccups, ccups.tipo.length, ccups.distribuidora.length, ccups.otros.length]);
+
+    return {cups, distribuidora, tipo};
+};

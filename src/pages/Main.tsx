@@ -23,10 +23,10 @@ const Main: React.FC = () => {
                     </h1>
                     <div className="input">
                         <div>
-                            <div className="tools">
-                                <Tool icon="👥" text="COPIAR" background="orange"/>
-                                <Tool icon="♻" text="GENERAR" background="chocolate"/>
-                            </div>
+                            {/*<div className="tools">*/}
+                            {/*    <Tool icon="👥" text="COPIAR" background="orange"/>*/}
+                            {/*    <Tool icon="♻" text="GENERAR" background="chocolate"/>*/}
+                            {/*</div>*/}
                             <Input/>
                         </div>
                     </div>
@@ -44,7 +44,7 @@ const Main: React.FC = () => {
                             <Button type="distribuidora" text="E-Redes" background="mediumslateblue" color="white"/>
                             <Button type="distribuidora" text="Redexis" background="dodgerblue" color="white"/>
                             <Button type="distribuidora" text="Nortegas" background="midnightblue" color="white"/>
-                            <Button type="distribuidora" text="Madrileña RDG" background="royalblue" color="white"/>
+                            <Button type="distribuidora" text="RDG" background="royalblue" color="white"/>
 
                         </div>
                         <div className="tipo-subministro">
