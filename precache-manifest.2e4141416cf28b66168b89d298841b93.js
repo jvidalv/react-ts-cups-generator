@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8f1a3de466334671df29c1ee73fcdc48",
+    "revision": "c679c45a599dd42e9593fb83ba0e185a",
     "url": "/react-ts-cups-generator/index.html"
   },
   {
