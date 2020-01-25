@@ -34,12 +34,14 @@ function main(ccups: object, setCups: any, setTipo: any, setDistribuidora: any) 
  * Sets first 6 digits of a CUPS based on options selected
  * It is a recursive and amazign function thought by the brightest brain of my 600 hundred population, me
  */
-const getFirstDigits = (): string | undefined => {
+const getFirstDigits = (i: number = 0): string | undefined => {
     tipo = ccupsi.tipo[ccupsi.tipo.length > 1 ? Math.round(Math.random()) : 0];
     if (tipo) {
         let t_dist = Object.keys(FIRST_DIGITS[tipo]).filter((key: string) => ccupsi.distribuidora.includes(key));
-        if (!t_dist.length && ccupsi.distribuidora.length) {
-            return getFirstDigits();
+        if (!t_dist.length && ccupsi.distribuidora.length && i < 5) {
+            i++;
+            console.log(i)
+            return getFirstDigits(i);
         }
         dist = t_dist[t_dist.length > 1 ? Math.floor(Math.random() * t_dist.length) : 0];
     }
