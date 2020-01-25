@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c679c45a599dd42e9593fb83ba0e185a",
+    "revision": "b05f7da30f25265d984cafebb533e16b",
     "url": "/react-ts-cups-generator/index.html"
   },
   {
-    "revision": "c99e16c28d56de43450a",
+    "revision": "b52c5233d3b5b040953d",
     "url": "/react-ts-cups-generator/static/css/main.5a48a0b4.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-ts-cups-generator/static/js/2.b85c9bac.chunk.js.LICENSE"
   },
   {
-    "revision": "c99e16c28d56de43450a",
-    "url": "/react-ts-cups-generator/static/js/main.8badf5ef.chunk.js"
+    "revision": "b52c5233d3b5b040953d",
+    "url": "/react-ts-cups-generator/static/js/main.f8e4da0a.chunk.js"
   },
   {
     "revision": "76b2b7ca3e28b74810a9",
