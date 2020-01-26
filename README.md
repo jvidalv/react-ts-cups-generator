@@ -1,6 +1,6 @@
 ## Generador de CUPS configurable
 
-**Utilizando las prácticas más modernas en Hooks y Contexto nativo de React.**
+**Utilizando las prácticas más modernas en Hooks y Context de React.**
 - React 16.12 
 - TypeScript 3.7.4
 
