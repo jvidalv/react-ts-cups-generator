@@ -24,7 +24,7 @@ const Input: React.FC = () => {
         let m_cups = cups;
         dom_input.innerHTML = cups.length > 5 ? [ `<span class="space">${m_cups.slice(0, 5)}</span>`, `<span class="space">${m_cups.slice(5, 18)}</span>`, `<span class="space">${m_cups.slice(18)}</span>`].join('') : cups;
         setAfterText("Click para copiar")
-    }, [inputRef, cups]);
+    }, [cups]);
 
     return (
         <>

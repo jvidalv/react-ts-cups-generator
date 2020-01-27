@@ -2,7 +2,9 @@ import React from "react";
 import {useGlobals} from "../contexts/global";
 import {CONTROL_DIGITS, FIRST_DIGITS} from "../constants/cups";
 
-
+/**
+ * Used variables
+ */
 let ccupsi: any;
 let dist = "";
 let tipo = "";
@@ -23,16 +25,16 @@ function main(ccups: object, setCups: any, setTipo: any, setDistribuidora: any) 
     cups && getEndChars();
 
     setDistribuidora(cups ? dist : "🙄");
-    setTipo(cups ? tipo : "💥");
+    setTipo(cups ? tipo : "👺");
 
-    cups = cups ? cups : "🤷‍♀️";
+    cups = cups ? cups : "💥";
 
     setCups(cups)
 }
 
 /**
  * Sets first 6 digits of a CUPS based on options selected
- * It is a recursive and amazign function thought by the brightest brain of my 600 hundred population, me
+ * It is a recursive and amazing function thought by the brightest brain of my 600 hundred population village
  */
 const getFirstDigits = (i: number = 0): string | undefined => {
     tipo = ccupsi.tipo[ccupsi.tipo.length > 1 ? Math.round(Math.random()) : 0];
@@ -40,11 +42,11 @@ const getFirstDigits = (i: number = 0): string | undefined => {
         let t_dist = Object.keys(FIRST_DIGITS[tipo]).filter((key: string) => ccupsi.distribuidora.includes(key));
         if (!t_dist.length && ccupsi.distribuidora.length && i < 5) {
             i++;
-            console.log(i)
             return getFirstDigits(i);
         }
         dist = t_dist[t_dist.length > 1 ? Math.floor(Math.random() * t_dist.length) : 0];
     }
+
     cups = tipo && dist ? FIRST_DIGITS[tipo][dist][Math.floor(Math.random() * FIRST_DIGITS[tipo][dist].length)] : ""
 };
 

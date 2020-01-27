@@ -21,9 +21,9 @@ export const reducer = (state: object, action: any): object | undefined => {
 export const initialState: any = {
     theme: 'dark',
     ccups: {
-        tipo: ['Electricidad', 'Gas'],
+        tipo: ['Electricidad'],
         distribuidora: [
-            'Endesa', 'Iberdrola', 'Naturgy', 'E-Redes', 'Redexis', 'Nortegas', 'RDG'
+            'Endesa'
         ],
         otros: ['Canario'],
     },
