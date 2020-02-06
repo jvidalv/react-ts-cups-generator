@@ -23,7 +23,7 @@ export const initialState: any = {
     ccups: {
         tipo: ['Electricidad'],
         distribuidora: [
-            'Endesa'
+            'Naturgy'
         ],
         otros: ['Canario'],
     },

@@ -45,7 +45,6 @@ const Main: React.FC = () => {
                             <Button type="distribuidora" text="Redexis" background="dodgerblue" color="white"/>
                             <Button type="distribuidora" text="Nortegas" background="midnightblue" color="white"/>
                             <Button type="distribuidora" text="RDG" background="royalblue" color="white"/>
-
                         </div>
                         <div className="tipo-subministro">
                             <ButtonTitle text="Otros" icon="🌴"/>
