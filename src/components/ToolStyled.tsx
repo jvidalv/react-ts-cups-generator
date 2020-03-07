@@ -16,10 +16,11 @@ export const ToolStyled = styled.div<ToolProps>`
     cursor:pointer;
     user-select: none;
     color : white;
+    margin-bottom: 5px;
     &:not(:last-child){
       margin-right: 3px;
     }
     &.hovered{
-      width: 80px;
+      width: 100px;
     }
 `;

@@ -23,6 +23,7 @@ const calculateOptions = (text: string, values: Array<string>) => {
     }
     return values;
 };
+
 /**
  * Checks if option is on or off
  * @param text
@@ -31,7 +32,6 @@ const calculateOptions = (text: string, values: Array<string>) => {
 const isChecked = (text: string, values: Array<string>) => {
     return values.findIndex((value: string) => value === text) !== -1;
 };
-
 
 /**
  * @param text
@@ -53,7 +53,7 @@ const Button: React.FC<ButtonProps> = ({text, background, color, type}) => {
 
     React.useEffect(() => {
         setChecked(isChecked(text, ccups[type]));
-    }, [ccups, ccups.tipo.length, ccups.distribuidora.length, ccups.otros.length]);
+    }, [ccups, ccups.tipo.length, ccups.distribuidora.length, ccups.otros.length, text, type]);
 
     return (
         <ButtonStyled background={background} color={color} checked={checked} onClick={() => changeChecked()}>

@@ -23,10 +23,10 @@ const Main: React.FC = () => {
                     </h1>
                     <div className="input">
                         <div>
-                            {/*<div className="tools">*/}
+                            <div className="tools">
                             {/*    <Tool icon="👥" text="COPIAR" background="orange"/>*/}
-                            {/*    <Tool icon="♻" text="GENERAR" background="chocolate"/>*/}
-                            {/*</div>*/}
+                                <Tool icon="♻" text="REGENERAR" background="chocolate"/>
+                            </div>
                             <Input/>
                         </div>
                     </div>

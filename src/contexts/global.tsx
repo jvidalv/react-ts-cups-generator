@@ -1,5 +1,9 @@
 import React, {createContext, ReactElement, useContext, useReducer} from "react";
 
+/**
+ * @param state
+ * @param action
+ */
 export const reducer = (state: object, action: any): object | undefined => {
     switch (action.type) {
         case "changeTheme":
@@ -12,11 +16,16 @@ export const reducer = (state: object, action: any): object | undefined => {
                 ...state,
                 changeCCUPS: action.changeCCUPS
             };
+        case "regenerate":
+            return {
+                ...state,
+                updated: action.regenerate
+            };
     }
 };
 
 /**
- * Initial app context, theme and cups generator properties
+ * Initial app state, theme and cups generator properties
  */
 export const initialState: any = {
     theme: 'dark',
@@ -41,6 +50,12 @@ interface StateProviderProps {
     children: ReactElement
 }
 
+/**
+ * @param reducer
+ * @param initialState
+ * @param children
+ * @constructor
+ */
 export const StateProvider: React.FC<StateProviderProps> = ({reducer, initialState, children}) => (
     <StateContext.Provider value={useReducer(reducer, initialState)}>
         {children}

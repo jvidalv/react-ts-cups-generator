@@ -1,9 +1,9 @@
 import React from "react";
-import {useCups} from "../utils/useCups";
+import {useCups} from "../hooks/useCups";
 import {CupsDivStyled, InputHiddenStyled, PropertiesStyled} from "./InputStyled";
 
-
 /**
+ * Where the CUPS is shown
  * @constructor
  */
 const Input: React.FC = () => {
@@ -11,14 +11,12 @@ const Input: React.FC = () => {
     const [afterText, setAfterText] = React.useState("Click para copiar");
     const inputRef = React.createRef();
     const hiddenInputRef = React.createRef();
-
     const copy = () => {
         const dom_hidden : any = hiddenInputRef.current;
-        navigator.clipboard.writeText(dom_hidden.value);
-        setAfterText("Copiado!")
+        navigator.clipboard.writeText(dom_hidden.value).then((r) => setAfterText("Copiado!"));
     };
 
-    // Separates the string with spans
+    // Separates the string with spans so it is read better but when you copy it its like if it is not separated
     React.useEffect(() => {
         const dom_input : any = inputRef.current;
         let m_cups = cups;

@@ -1,4 +1,3 @@
-
 export const FIRST_DIGITS: any = {
     Electricidad: {
         'Endesa': ['ES0023', 'ES0024', 'ES0029', 'ES0288', 'ES0363', 'ES0396'],

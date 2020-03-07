@@ -77,14 +77,14 @@ const getEndChars = () => {
  * It also returns the random type and distribuidora choosen during the calculations
  */
 export const useCups = (): any => {
-    const [{ccups}] = useGlobals();
+    const [{ccups, updated}] = useGlobals();
     const [cups, setCups] = React.useState("");
     const [distribuidora, setDistribuidora] = React.useState("");
     const [tipo, setTipo] = React.useState("");
 
     React.useEffect(() => {
         main(ccups, setCups, setTipo, setDistribuidora);
-    }, [ccups, ccups.tipo.length, ccups.distribuidora.length, ccups.otros.length]);
+    }, [ccups, ccups.tipo.length, ccups.distribuidora.length, ccups.otros.length, updated]);
 
     return {cups, distribuidora, tipo};
 };
